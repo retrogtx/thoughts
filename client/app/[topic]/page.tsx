@@ -12,8 +12,7 @@ const Page = async ({ params }: PageProps) => {
 
   const initialData = await redis.zrange<(string | number)[]>(
     `room:${topic}`,
-    0,
-    49,
+    0, 49,
     {
       withScores: true,
     }
@@ -30,7 +29,6 @@ const Page = async ({ params }: PageProps) => {
   }
 
   await redis.incr("served-requests")
-
   return <ClientPage initialData={words} topicName={topic} />
 }
 

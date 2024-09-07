@@ -42,7 +42,6 @@ const ClientPage = ({ topicName, initialData }: ClientPageProps) => {
         )
 
         if (isWordAlreadyIncluded) {
-          // increment
           setWords((prev) => {
             const before = prev.find((word) => word.text === newWord.text)
             const rest = prev.filter((word) => word.text !== newWord.text)
@@ -53,7 +52,6 @@ const ClientPage = ({ topicName, initialData }: ClientPageProps) => {
             ]
           })
         } else if (words.length < 50) {
-          // add to state
           setWords((prev) => [...prev, newWord])
         }
       })
